@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+from call_ai import call_ai
 
 col1, col2, col3 = st.columns(3)
 
@@ -21,15 +23,14 @@ with col2:
     )
 
 with col3:
-    st.write("## ⏳")
-#     if uploaded_file is not None:
-#         st.write("→")
-#         st.write("## Step 3: Download Result")
-#         # Read the uploaded file
-#         uploaded_df = pd.read_excel(uploaded_file)
+    st.write("## 👌⏳⏳⌛")
+    if uploaded_file is not None:
+        st.write(call_ai('tell me a joke'))
+        # Read the uploaded file
+        table = pd.read_excel(uploaded_file, sheet_name='關鍵字對照表')
 
-#         # Process the uploaded file (e.g., add a new column)
-#         uploaded_df['New Column'] = 'Result'
+        # Process the uploaded file (e.g., add a new column)
+        st.write(table)
 
 #         # Create a download button for the result
 #         with st.container():
